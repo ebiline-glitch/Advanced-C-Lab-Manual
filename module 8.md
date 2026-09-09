@@ -16,15 +16,60 @@ Algorithm:
  
 Program:
 
-//type your code here
+    #include <stdio.h>
 
+    int main()
+    {
+    int n;
+
+    printf("Enter a number (1-10): ");
+    scanf("%d", &n);
+
+    switch(n)
+    {
+        case 1:
+            printf("one");
+            break;
+        case 2:
+            printf("two");
+            break;
+        case 3:
+            printf("three");
+            break;
+        case 4:
+            printf("four");
+            break;
+        case 5:
+            printf("five");
+            break;
+        case 6:
+            printf("six");
+            break;
+        case 7:
+            printf("seven");
+            break;
+        case 8:
+            printf("eight");
+            break;
+        case 9:
+            printf("nine");
+            break;
+        case 10:
+            printf("ten");
+            break;
+        default:
+            printf("Invalid number");
+    }
+
+    return 0;
+    }
 
 
 
 Output:
 
 
-//paste your output here
+<img width="552" height="82" alt="image" src="https://github.com/user-attachments/assets/bc1e8394-8e9e-4e9f-aa00-8706aa8d7b99" />
 
 
 
@@ -47,7 +92,34 @@ Algorithm:
  
 Program:
 
-//type your code here
+    #include <stdio.h>
+
+    int main()
+    {
+    int n, i;
+    int digit;
+    int frequency[10] = {0};
+
+    printf("Enter the number of digits: ");
+    scanf("%d", &n);
+
+    printf("Enter %d digits (0 to 3):\n", n);
+
+    for(i = 0; i < n; i++)
+    {
+        scanf("%d", &digit);
+        frequency[digit]++;
+    }
+
+    printf("Frequency of digits from 0 to 9:\n");
+
+    for(i = 0; i < 10; i++)
+    {
+        printf("%d ", frequency[i]);
+    }
+
+    return 0;
+    }
 
 
 
@@ -55,7 +127,7 @@ Program:
 Output:
 
 
-//paste your output here
+<img width="701" height="153" alt="image" src="https://github.com/user-attachments/assets/82790fc1-942f-4348-9da4-51e44ba90d15" />
 
 
 
@@ -84,15 +156,67 @@ Free the memory allocated for each string in s Free the memory allocated for s
  
 Program:
 
-//type your code here
+    #include <stdio.h>
+    #include <string.h>
+    #include <stdlib.h>
 
+    int compare(const void *a, const void *b)
+    {
+    return (*(char *)a - *(char *)b);
+    }
+
+    void swap(char *a, char *b)
+    {
+    char temp = *a;
+    *a = *b;
+    *b = temp;
+    }
+
+    void permute(char str[], int l, int r)
+    {
+    int i;
+
+    if (l == r)
+    {
+        printf("%s\n", str);
+    }
+    else
+    {
+        for (i = l; i <= r; i++)
+        {
+            swap(&str[l], &str[i]);
+            permute(str, l + 1, r);
+            swap(&str[l], &str[i]);
+        }
+    }
+    }
+
+    int main()
+    {
+     char str[100];
+    int n;
+
+    printf("Enter a string: ");
+    scanf("%s", str);
+
+    n = strlen(str);
+
+    // Sort the string in lexicographical order
+    qsort(str, n, sizeof(char), compare);
+
+    printf("Permutations in lexicographical order:\n");
+
+    permute(str, 0, n - 1);
+
+    return 0;
+    }
 
 
 
 Output:
 
 
-//paste your output here
+<img width="733" height="272" alt="image" src="https://github.com/user-attachments/assets/4d35986b-26ef-4089-adbc-ecc7ab7b5287" />
 
 
 
@@ -116,8 +240,41 @@ Algorithm:
 7.	End
  
 Program:
+     
+     #include <stdio.h>
 
-//type your code here
+    int main()
+    {
+    int n, i, j, len, min;
+
+    printf("Enter the value of n: ");
+    scanf("%d", &n);
+
+    len = n * 2 - 1;
+
+    for (i = 0; i < len; i++)
+    {
+        for (j = 0; j < len; j++)
+        {
+            min = i;
+
+            if (j < min)
+                min = j;
+
+            if (len - 1 - i < min)
+                min = len - 1 - i;
+
+            if (len - 1 - j < min)
+                min = len - 1 - j;
+
+            printf("%d ", n - min);
+        }
+
+        printf("\n");
+    }
+
+    return 0;
+    }
 
 
 
@@ -125,7 +282,7 @@ Program:
 Output:
 
 
-//paste your output here
+<img width="525" height="260" alt="image" src="https://github.com/user-attachments/assets/a8878085-b2fc-42d3-b292-73d625baac23" />
 
 
 
@@ -156,15 +313,39 @@ o	Call the square() function and display the result.
 
 Program:
 
-//type your code here
+    #include <stdio.h>
 
+    int square();
+
+    int main()
+    {
+    int result;
+
+    result = square();
+
+    printf("Square of the number = %d", result);
+
+    return 0;
+    }
+
+    int square()
+    {
+    int n, sq;
+
+    printf("Enter a number: ");
+    scanf("%d", &n);
+
+    sq = n * n;
+
+    return sq;
+    }
 
 
 
 Output:
 
 
-//paste your output here
+<img width="680" height="81" alt="image" src="https://github.com/user-attachments/assets/12d4b8b6-0793-4be3-a67e-72d20e7082c6" />
 
 
 
