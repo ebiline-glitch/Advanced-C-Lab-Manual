@@ -13,11 +13,43 @@ Algorithm:
  
 Program:
 
-//type your code here
+    #include <stdio.h>
 
+    #define MAX 10
+
+    int main()
+    {
+    int stack[MAX];
+    int top = -1;
+    int n, i;
+
+    printf("Enter the number of elements: ");
+    scanf("%d", &n);
+
+    if (n > MAX)
+    {
+        printf("Stack Overflow");
+        return 0;
+    }
+
+    for (i = 0; i < n; i++)
+    {
+        printf("Enter element %d: ", i + 1);
+        scanf("%d", &stack[++top]);
+    }
+
+    printf("\nStack elements are:\n");
+
+    for (i = top; i >= 0; i--)
+    {
+        printf("%d\n", stack[i]);
+    }
+
+    return 0;
+    }
 Output:
 
-//paste your output here
+<img width="730" height="351" alt="image" src="https://github.com/user-attachments/assets/c8f6ecf9-ab77-43b1-af34-673a71f03ab3" />
 
 
 
@@ -36,11 +68,52 @@ Algorithm:
  
 Program:
 
-//type your code here
+    #include <stdio.h>
 
+    #define MAX 10
+
+    int main()
+    {
+    int stack[MAX];
+    int top = -1;
+    int n, i, element;
+
+    printf("Enter the number of elements: ");
+    scanf("%d", &n);
+
+    for (i = 0; i < n; i++)
+    {
+        printf("Enter element %d: ", i + 1);
+        scanf("%d", &stack[++top]);
+    }
+
+    printf("Enter the element to push: ");
+    scanf("%d", &element);
+
+    if (top == MAX - 1)
+    {
+        printf("Stack Overflow");
+    }
+    else
+    {
+        top++;
+        stack[top] = element;
+
+        printf("\nElement pushed successfully.\n");
+
+        printf("Stack elements are:\n");
+
+        for (i = top; i >= 0; i--)
+        {
+            printf("%d\n", stack[i]);
+        }
+    }
+
+    return 0;
+    }
 Output:
 
-//paste your output here
+<img width="837" height="400" alt="image" src="https://github.com/user-attachments/assets/c325a848-184f-4a7c-8c54-422fe5b340f4" />
 
 
 
@@ -62,11 +135,43 @@ Algorithm:
  
 Program:
 
-//type your code here
+    #include <stdio.h>
 
+    #define MAX 10
+
+    int main()
+    {
+    int queue[MAX];
+    int front = 0, rear = -1;
+    int n, i;
+
+    printf("Enter the number of elements: ");
+    scanf("%d", &n);
+
+    if (n > MAX)
+    {
+        printf("Queue Overflow");
+        return 0;
+    }
+
+    for (i = 0; i < n; i++)
+    {
+        printf("Enter element %d: ", i + 1);
+        scanf("%d", &queue[++rear]);
+    }
+
+    printf("\nQueue elements are:\n");
+
+    for (i = front; i <= rear; i++)
+    {
+        printf("%d\n", queue[i]);
+    }
+
+    return 0;
+    }
 Output:
 
-//paste your output here
+<img width="767" height="357" alt="image" src="https://github.com/user-attachments/assets/0e6dea2c-f696-47bf-ad55-8f668434eb5e" />
 
 
 Result:
@@ -86,11 +191,52 @@ Algorithm:
 
 Program:
 
-//type your code here
+    #include <stdio.h>
 
+    #define MAX 10
+
+    int main()
+    {
+    int queue[MAX];
+    int front = 0, rear = -1;
+    int n, i, element;
+
+    printf("Enter the number of elements: ");
+    scanf("%d", &n);
+
+    for (i = 0; i < n; i++)
+    {
+        printf("Enter element %d: ", i + 1);
+        scanf("%d", &queue[++rear]);
+    }
+
+    printf("Enter the element to insert: ");
+    scanf("%d", &element);
+
+    if (rear == MAX - 1)
+    {
+        printf("Queue Overflow");
+    }
+    else
+    {
+        rear++;
+        queue[rear] = element;
+
+        printf("\nElement inserted successfully.\n");
+
+        printf("Queue elements are:\n");
+
+        for (i = front; i <= rear; i++)
+        {
+            printf("%d\n", queue[i]);
+        }
+    }
+
+    return 0;
+    }
 Output:
 
-//paste your output here
+<img width="603" height="386" alt="image" src="https://github.com/user-attachments/assets/9649aca8-20e2-4dcc-b796-babd0b1ec847" />
 
 Result:
 Thus, the program to insert elements in queue using array is verified successfully.
@@ -121,11 +267,51 @@ o	After deletion, check if the front pointer has passed the rear pointer (front 
 
 Program:
 
-//type your code here
+    #include <stdio.h>
+
+    #define MAX 10
+
+    int main()
+    {
+    int queue[MAX];
+    int front = 0, rear = -1;
+    int n, i, deletedElement;
+
+    printf("Enter the number of elements: ");
+    scanf("%d", &n);
+
+    for (i = 0; i < n; i++)
+    {
+        printf("Enter element %d: ", i + 1);
+        rear++;
+        scanf("%d", &queue[rear]);
+    }
+
+    if (front > rear)
+    {
+        printf("Queue Underflow");
+    }
+    else
+    {
+        deletedElement = queue[front];
+        front++;
+
+        printf("\nDeleted element is: %d\n", deletedElement);
+
+        printf("\nQueue elements after deletion are:\n");
+
+        for (i = front; i <= rear; i++)
+        {
+            printf("%d\n", queue[i]);
+        }
+    }
+
+    return 0;
+    }
 
 Output:
 
-//paste your output here
+<img width="714" height="387" alt="image" src="https://github.com/user-attachments/assets/c6e02c22-b2cc-4a5e-9903-bd64b2d1b0e2" />
 
 
 Result:
