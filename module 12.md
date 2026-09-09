@@ -15,11 +15,51 @@ Algorithm:
  
 Program:
 
-//type your code here
+    #include <stdio.h>
+    #include <stdlib.h>
 
+    struct Node
+    {
+    int data;
+    struct Node *next;
+    };
+
+    int main()
+    {
+    struct Node *top = NULL, *newnode, *temp;
+    int n, i;
+
+    printf("Enter the number of elements: ");
+    scanf("%d", &n);
+
+    /* Create stack using linked list */
+    for (i = 0; i < n; i++)
+    {
+        newnode = (struct Node *)malloc(sizeof(struct Node));
+
+        printf("Enter element %d: ", i + 1);
+        scanf("%d", &newnode->data);
+
+        newnode->next = top;
+        top = newnode;
+    }
+
+    /* Display stack elements */
+    printf("\nStack elements are:\n");
+
+    temp = top;
+
+    while (temp != NULL)
+    {
+        printf("%d\n", temp->data);
+        temp = temp->next;
+    }
+
+    return 0;
+    }
 Output:
 
-//paste your output here
+<img width="650" height="368" alt="image" src="https://github.com/user-attachments/assets/38fbfc80-0924-4404-aa27-2a1db3761408" />
 
 
 Result:
@@ -40,11 +80,66 @@ Algorithm:
  
 Program:
 
-//type your code here
+    #include <stdio.h>
+    #include <stdlib.h>
 
+    struct Node
+    {
+    int data;
+    struct Node *next;
+    };
+
+    int main()
+    {
+    struct Node *top = NULL, *newnode, *temp;
+    int n, i, poppedElement;
+
+    printf("Enter the number of elements: ");
+    scanf("%d", &n);
+
+    /* Create stack using linked list */
+    for (i = 0; i < n; i++)
+    {
+        newnode = (struct Node *)malloc(sizeof(struct Node));
+
+        printf("Enter element %d: ", i + 1);
+        scanf("%d", &newnode->data);
+
+        newnode->next = top;
+        top = newnode;
+    }
+
+    /* Pop operation */
+    if (top == NULL)
+    {
+        printf("Stack Underflow");
+    }
+    else
+    {
+        temp = top;
+        poppedElement = top->data;
+        top = top->next;
+
+        free(temp);
+
+        printf("\nPopped element is: %d\n", poppedElement);
+
+        printf("\nStack elements after pop:\n");
+
+        temp = top;
+
+        while (temp != NULL)
+        {
+            printf("%d\n", temp->data);
+            temp = temp->next;
+        }
+    }
+
+    return 0;
+    }
 Output:
 
-//paste your output here
+<img width="777" height="403" alt="image" src="https://github.com/user-attachments/assets/3c918b97-8b2c-43af-910c-799a9357ddc1" />
 
 
 
@@ -64,11 +159,60 @@ Algorithm:
  
 Program:
 
-//type your code here
+    #include <stdio.h>
+    #include <stdlib.h>
 
+    struct Node
+    {
+    int data;
+    struct Node *next;
+    };
+
+    int main()
+    {
+    struct Node *front = NULL, *rear = NULL, *newnode, *temp;
+    int n, i;
+
+    printf("Enter the number of elements: ");
+    scanf("%d", &n);
+
+    /* Create queue using linked list */
+    for (i = 0; i < n; i++)
+    {
+        newnode = (struct Node *)malloc(sizeof(struct Node));
+
+        printf("Enter element %d: ", i + 1);
+        scanf("%d", &newnode->data);
+
+        newnode->next = NULL;
+
+        if (front == NULL)
+        {
+            front = rear = newnode;
+        }
+        else
+        {
+            rear->next = newnode;
+            rear = newnode;
+        }
+    }
+
+    /* Display queue elements */
+    printf("\nQueue elements are:\n");
+
+    temp = front;
+
+    while (temp != NULL)
+    {
+        printf("%d\n", temp->data);
+        temp = temp->next;
+    }
+
+    return 0;
+    }
 Output:
 
-//paste your output here
+<img width="636" height="371" alt="image" src="https://github.com/user-attachments/assets/7d246b85-1ee7-443b-8f4f-e2ece636c4d9" />
 
 Result:
 Thus, the program to display queue elements using linked list is verified successfully.
@@ -90,11 +234,72 @@ Algorithm:
  
 Program:
 
-//type your code here
+    #include <stdio.h>
+    #include <stdlib.h>
 
+    struct Node
+    {
+    int data;
+    struct Node *next;
+    };
+
+    int main()
+    {
+    struct Node *front = NULL, *rear = NULL, *newnode, *temp;
+    int n, i, element;
+
+    printf("Enter the number of elements: ");
+    scanf("%d", &n);
+
+    /* Create queue using linked list */
+    for (i = 0; i < n; i++)
+    {
+        newnode = (struct Node *)malloc(sizeof(struct Node));
+
+        printf("Enter element %d: ", i + 1);
+        scanf("%d", &newnode->data);
+
+        newnode->next = NULL;
+
+        if (front == NULL)
+        {
+            front = rear = newnode;
+        }
+        else
+        {
+            rear->next = newnode;
+            rear = newnode;
+        }
+    }
+
+    /* Insert new element */
+    newnode = (struct Node *)malloc(sizeof(struct Node));
+
+    printf("Enter the element to insert: ");
+    scanf("%d", &element);
+
+    newnode->data = element;
+    newnode->next = NULL;
+
+    rear->next = newnode;
+    rear = newnode;
+
+    /* Display queue */
+    printf("\nQueue elements after insertion:\n");
+
+    temp = front;
+
+    while (temp != NULL)
+    {
+        printf("%d\n", temp->data);
+        temp = temp->next;
+    }
+
+    return 0;
+    }
 Output:
 
-//paste your output here
+<img width="664" height="364" alt="image" src="https://github.com/user-attachments/assets/e5085cbf-8df4-45bd-9f3c-b054f8abf7ad" />
 
 Result:
 Thus, the program to insert elements in queue using linked list is verified successfully.
@@ -117,11 +322,64 @@ o	If the queue is not empty, return the data stored in the front node of the lin
 
 Program:
 
-//type your code here
+    #include <stdio.h>
+    #include <stdlib.h>
 
+    struct Node
+    {
+    int data;
+    struct Node *next;
+    };
+
+    void peek(struct Node *front)
+    {
+    if (front == NULL)
+    {
+        printf("Queue is empty");
+    }
+    else
+    {
+        printf("Peek element is: %d", front->data);
+    }
+    }
+
+    int main()
+    {
+    struct Node *front = NULL, *rear = NULL, *newnode;
+    int n, i;
+
+    printf("Enter the number of elements: ");
+    scanf("%d", &n);
+
+    /* Create queue using linked list */
+    for (i = 0; i < n; i++)
+    {
+        newnode = (struct Node *)malloc(sizeof(struct Node));
+
+        printf("Enter element %d: ", i + 1);
+        scanf("%d", &newnode->data);
+
+        newnode->next = NULL;
+
+        if (front == NULL)
+        {
+            front = rear = newnode;
+        }
+        else
+        {
+            rear->next = newnode;
+            rear = newnode;
+        }
+    }
+
+    /* Call peek function */
+    peek(front);
+
+    return 0;
+    }
 Output:
 
-//paste your output here
+<img width="854" height="237" alt="image" src="https://github.com/user-attachments/assets/8f65f4ab-b891-4871-8494-e2ae6d762f04" />
 
 
 
